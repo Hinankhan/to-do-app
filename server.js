@@ -11,10 +11,12 @@ let app = express()
 app.use(express.static('public'))// acess to newely created folder
 
 let db
+//for connecting to heroku
 let port = process.env.PORT
 if(port == null || port == ""){
   port=3000
 }
+//db connection
 let connectionString ="mongodb+srv://todoapp:HO5bTmf9SjxA8Swz@cluster0.mwcnn.mongodb.net/TodoApp?retryWrites=true&w=majority"
 mongodb.connect(connectionString, {useNewUrlParser:true, useUnifiedTopology: true}, function(err,client){
 db = client.db()
